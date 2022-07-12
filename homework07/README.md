@@ -121,7 +121,7 @@ iptables -A INPUT -p tcp --dport 22 -m conntrack --ctstate NEW,ESTABLISHED -j AC
 # разрешаем входящие подключения по HTTP
 iptables -A INPUT -p tcp --dport 80 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 # разрешаем подключения к MySQL только по локальной сети
-iptables -A INPUT --source 10.0.1.0/24 -p tcp --dport 3306 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
+iptables -A INPUT --source 10.100.102.0/24 -p tcp --dport 3306 -m conntrack --ctstate NEW,ESTABLISHED -j ACCEPT
 # все остальные входящие пакеты отклоняем
 iptables -P INPUT DROP
 # все исходящие соединения разрешаем
